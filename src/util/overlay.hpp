@@ -29,7 +29,7 @@ extern "C" {
 #include <graphics/image-file.h>
 }
 
-typedef struct gs_image_file_ex gs_image_file_ex_t;
+#include "image_compat.hpp"
 
 class overlay {
 public:
@@ -43,7 +43,7 @@ public:
     void tick(float seconds);
     void refresh_data();
     bool is_loaded() const { return m_is_loaded; }
-    gs_image_file_ex_t *get_texture() const { return m_image; }
+    io_image_base_t *get_texture() const { return io_image_base(m_image); }
 
 private:
     bool load_cfg();
@@ -53,7 +53,7 @@ private:
 
     static const char *element_type_to_string(element_type t);
 
-    gs_image_file_ex_t *m_image = nullptr;
+    io_image_t *m_image = nullptr;
     sources::overlay_settings *m_settings = nullptr;
     bool m_is_loaded = false;
     std::vector<std::unique_ptr<element>> m_elements;

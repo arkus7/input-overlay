@@ -147,6 +147,7 @@ target_sources(
     src/util/obs_util.hpp
     src/util/overlay.cpp
     src/util/overlay.hpp
+    src/util/image_compat.hpp
     src/util/element/element.cpp
     src/util/element/element.hpp
     src/util/element/element_texture.cpp
